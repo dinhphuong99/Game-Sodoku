@@ -1,0 +1,76 @@
+td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid blue;
+    /*border-collapse: collapse;*/
+}
+
+table {
+    border: 1px solid blue;
+    border-collapse: collapse;
+    margin: auto;
+    background-color: white;
+}
+
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+td:hover {
+    cursor: pointer;
+}
+
+td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.bg-green {
+    background-color: rgb(47, 241, 255);
+}
+
+.bg-orange {
+    background-color: #F84343;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-yellow {
+    background-color: yellow;
+}
+
+.bg-green,
+.bg-orange {
+    color: black;
+}
+
+#btn {
+    background-color: paleturquoise;
+    text-align: center;
+    color: red;
+    margin: auto;
+    width: 65px;
+    height: 40px;
+}
+
+.btnCheck {
+    margin: auto;
+    text-align: center;
+}
+
+button {
+    background-color: plum;
+    text-align: center;
+    color: black;
+    margin: auto;
+    width: 65px;
+    height: 40px;
+}
+
+#main {
+    background-image: url("hinh-nen-dep-may-tinh-1.jpg");
+    background-size: cover;
+}
