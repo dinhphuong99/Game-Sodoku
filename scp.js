@@ -184,8 +184,8 @@ function update(row, col) {
                 break;
             }
 
-            alert("Không hợp lệ");
             play(row, col);
+            break;
         }
 
         if (num1 >= 1 && num1 <= 9) {
