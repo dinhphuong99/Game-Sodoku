@@ -147,13 +147,13 @@ function drawTable() {
                 printNumber = mangbandau[i][j];
             } else if (arr1[i][j] == 0) {
                 if (arrTemp[i][j] == 0) {
-                    printNumber = "";
+                    printNumber = " ";
                 } else {
                     printNumber = arrTemp[i][j];
                 }
             }
 
-            table += `<td style="text-align:center" class="${arr1[i][j] != 1 ? 'bg-white' : 'bg-green'}" onclick="play(${i},${j})"
+            table += `<td id ="td_${i}_${j}" style="text-align:center" class="${arr1[i][j] != 1 ? 'bg-white' : 'bg-green'}" onclick="play(${i},${j})" onfocusout ='update(${i},${j})'
             class=" ${mangbandau[i][j] != arrTemp[i][j] ? 'bg-white' : 'bg-green'}" >
                     ${printNumber} </td>`
         }
@@ -167,13 +167,25 @@ function drawTable() {
 drawTable();
 
 function play(row, col) {
+    let td = document.getElementById(`td_${row}_${col}`);
+    td.contentEditable = true;
+}
+
+function update(row, col) {
+
     if (arr1[row][col] == 0) {
         let num1 = -1;
         while (num1 < 1 || num1 > 9) {
-            let num = parseInt(prompt("Nhập vào một số từ 1 đến 9"));
-            if (isNaN(num) == false) {
+            let td = document.getElementById(`td_${row}_${col}`);
+            let num = parseInt(td.innerText);
+
+            if (isNaN(num) == false ) {
                 num1 = num;
+                break;
             }
+
+            alert("Không hợp lệ");
+            play(row, col);
         }
 
         if (num1 >= 1 && num1 <= 9) {

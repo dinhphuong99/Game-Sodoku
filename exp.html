@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding:30px;
+        }
+        td:hover{
+            cursor: pointer;
+        }
+
+        input[type='text']{
+            border: 1px solid red;
+            outline: none;
+            width: 20px;
+            height: 20px;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="area"></div>
+
+    <script>
+        let matrix = [ [0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]];
+        let size = 5;
+        function buildTable(){
+            let area = document.getElementById('area');
+            let table = "<table border='1'>";
+            for(let i=0;i<size;i++){
+                table += "<tr>";
+                for(let j=0;j<size;j++){
+                    table += `<td id='td_${i}${j}' onclick='enterValue(${i},${j})' onfocusout ='update(${i},${j})' >${matrix[i][j]}</td>`
+                }
+                table+= "</tr>";
+            }
+            table += "</table>";
+            area.innerHTML = table;
+        }
+
+        function enterValue(i,j){
+            let td = document.getElementById(`td_${i}${j}`);
+            td.contentEditable = true;
+        }
+
+        function update(i,j){
+            let td = document.getElementById(`td_${i}${j}`);
+            matrix[i][j] = parseInt(td.innerText);
+        }
+        buildTable();
+    </script>
+</body>
+</html>
