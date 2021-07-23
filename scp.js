@@ -161,11 +161,11 @@ function drawTable() {
     }
     table += "</table>";
 
-    document.getElementById("sodoku-area").innerHTML = table;
+    document.getElementById("sudoku-area").innerHTML = table;
 }
 
 drawTable();
-alert("Không hợp lệ");
+
 function play(row, col) {
     let td = document.getElementById(`td_${row}_${col}`);
     td.contentEditable = true;
@@ -184,6 +184,7 @@ function update(row, col) {
                 break;
             }
 
+            alert("Không hợp lệ");
             play(row, col);
             break;
         }
@@ -231,7 +232,7 @@ function kiemTra() {
     }
     table += "</table>";
 
-    document.getElementById("sodoku-area").innerHTML = table;
+    document.getElementById("sudoku-area").innerHTML = table;
 
     //let tableDraw = drawTable();
     setTimeout(function () { drawTable() }, 3000);
@@ -241,7 +242,7 @@ function checkWin(arrTemp,mangbandau, arr1) {
     let table = "<table border='1';margin:auto' >";
     for (let i = 0; i < mangbandau.length; i++) {
         for (let j = 0; j < mangbandau[i].length; j++) {
-            if (arr1[i][j] == 1 &&arrTemp[i][j] != mangbandau[i][j]) {
+            if (arr1[i][j] == 1 && arrTemp[i][j] != mangbandau[i][j]) {
                 arrTemp[i][j] = mangbandau[i][j];
             }
         }
