@@ -199,7 +199,7 @@ function update(row, col) {
 
         drawTable();
 
-        if (checkWin(arrTemp,mangbandau, arr1)) {
+        if (checkWin(arr1)) {
             alert("Bạn đã thắng!");
         }
     }
@@ -238,18 +238,11 @@ function kiemTra() {
     setTimeout(function () { drawTable() }, 3000);
 }
 
-function checkWin(arrTemp,mangbandau, arr1) {
+function checkWin(arr1) {
     let table = "<table border='1';margin:auto' >";
     for (let i = 0; i < mangbandau.length; i++) {
         for (let j = 0; j < mangbandau[i].length; j++) {
-            if (arr1[i][j] == 1 && arrTemp[i][j] != mangbandau[i][j]) {
-                arrTemp[i][j] = mangbandau[i][j];
-            }
-        }
-    }
-    for (let i = 0; i < arrTemp.length; i++) {
-        for (let j = 0; j < arrTemp.length; j++) {
-            if (arrTemp[i][j] == 0) {
+            if (arr1[i][j] == 0) {
                 return false;
             }
         }
