@@ -165,7 +165,7 @@ function drawTable() {
 }
 
 drawTable();
-
+alert("Không hợp lệ");
 function play(row, col) {
     let td = document.getElementById(`td_${row}_${col}`);
     td.contentEditable = true;
