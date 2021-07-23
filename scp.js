@@ -153,7 +153,13 @@ function drawTable() {
                 }
             }
 
-            table += `<td id ="td_${i}_${j}" style="text-align:center" class="${arr1[i][j] != 1 ? 'bg-white' : 'bg-green'}" onclick="play(${i},${j})" onfocusout ='update(${i},${j})'
+            let printEvent = "";
+            if (arr1[i][j] ==0) {
+                printEvent = `onclick="play(${i},${j})" onfocusout ='update(${i},${j})'`;
+            }
+
+            table += `<td id ="td_${i}_${j}" style="text-align:center" 
+            class="${arr1[i][j] != 1 ? 'bg-white' : 'bg-green'}" ${printEvent}
             class=" ${mangbandau[i][j] != arrTemp[i][j] ? 'bg-white' : 'bg-green'}" >
                     ${printNumber} </td>`
         }
@@ -179,7 +185,7 @@ function update(row, col) {
             let td = document.getElementById(`td_${row}_${col}`);
             let num = parseInt(td.innerText);
 
-            if (isNaN(num) == false ) {
+            if (isNaN(num) == false) {
                 num1 = num;
                 break;
             }
@@ -207,7 +213,7 @@ function update(row, col) {
 
 function kiemTra() {
     let table = "<table border='1';margin:auto' >";
-    
+
     for (let i = 0; i < mangbandau.length; i++) {
         table += "<tr>";
         for (let j = 0; j < mangbandau.length; j++) {
